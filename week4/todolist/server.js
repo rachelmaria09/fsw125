@@ -39,19 +39,19 @@ const todos = [
 
 //routes
 //get
-app.get("/:todos", (req, res) => {
+app.get("/todos", (req, res) => {
     res.send(todos)
 })
 
 //get one
-app.get("/:todoId", (req, res) => {
+app.get("/todos/:todoId", (req, res) => {
     const todoId = req.params.todoId
     const foundTodo = todos.find(todo => todo._id === todoId)
     res.send(foundTodo)
 })
 
 //post
-app.post("/:todos", (req, res) => {
+app.post("/todos", (req, res) => {
     const newTodo = req.body
     newTodo._id = uuid.v4()
     todos.push(newTodo)
@@ -59,7 +59,7 @@ app.post("/:todos", (req, res) => {
 })
 
 //delete
-app.delete("/:todoId", (req, res) => {
+app.delete("/todos/:todoId", (req, res) => {
     const todoId = req.params.todoId
     const todoIndex = todos.findIndex(todo => todo._id === todoId)
     todos.splice(todoIndex, 1)
