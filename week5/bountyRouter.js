@@ -1,6 +1,7 @@
-const express = require('routes/node_modules/express')
+const express = require('express')
 const bountyRouter = express.Router()
-const uuid = require("routes/node_modules/uuid")
+const uuid = require('uuid')
+// import uuid from 'uuid'
 
 const bounties = [
     { firstName: "Darth", lastName: "Vader", living: true, type: "Sith", _id: uuid.v4() },
@@ -20,7 +21,7 @@ bountyRouter.route("/")
     const newBounty = req.body
     newBounty._id = uuid()
     bounties.push(newBounty)
-    res.send(`New bounty added to the list: ${newBounty.firstName} !`)
+    res.send(newBounty)
 })
 //get one
 bountyRouter.get("/:bountyId", (req, res) => {
