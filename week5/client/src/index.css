@@ -1,3 +1,50 @@
 body {
     text-align: center;
+    background-image: url("https://images.unsplash.com/photo-1568578728400-95dd4f33a85b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60");
+}
+.heading {
+    font-family: 'Syne Mono', monospace;
+    font-size: 4em;
+}
+.allText {
+    background-color: rgb(187, 187, 125);
+    opacity: 0.7;
+    font-family: 'Roboto Mono', monospace;
+    margin-left: 110px;
+    margin-right: 110px;
+}
+.input {
+    height: 2em;
+    margin: 4px;
+}
+.addBountyBtn {
+    background-color: rgb(156, 47, 47);
+    opacity: 2.0;
+    border: none;
+    height: 2em;
+    font-weight: bolder;
+}
+.editBtn {
+    background-color: rgb(156, 47, 47);
+    opacity: 2.0;
+    border: none;
+    height: 2em;
+    font-weight: bolder;
+    margin: 6px;
+}
+.deleteBtn {
+    background-color: rgb(156, 47, 47);
+    opacity: 2.0;
+    border: none;
+    height: 2em;
+    font-weight: bolder;
+    margin: 6px;
+}
+.closeBtn {
+    background-color: rgb(156, 47, 47);
+    opacity: 2.0;
+    border: none;
+    height: 2em;
+    font-weight: bolder;
+    margin: 6px;
 }

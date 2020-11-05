@@ -1,7 +1,12 @@
 import React, { useState } from 'react'
 
 export default function AddBountyForm(props) {
-    const initInputs = {firstName: "", lastName: "", living: "", type: ""}
+    const initInputs = {
+        firstName: props.firstName || "", 
+        lastName: props.lastName || "",
+        living: props.living || "",
+        type: props.type || ""
+    }
     const [inputs, setInputs] = useState(initInputs)
 
     function handleChange(e) {
@@ -11,21 +16,22 @@ export default function AddBountyForm(props) {
 
     function handleSubmit(e) {
         e.preventDefault()
-        props.addBounty(inputs)
+        props.submit(inputs, props._id)
         setInputs(initInputs)
     }
 
     return (
         <form onSubmit={handleSubmit}>
             <input
+                className="input"
                 type="text"
                 name="firstName" 
                 value={inputs.firstName} 
                 onChange={handleChange}
                 placeholder="First Name"
             />
-            <br />
             <input 
+                className="input"
                 type="text" 
                 name="lastName" 
                 value={inputs.lastName} 
@@ -34,14 +40,15 @@ export default function AddBountyForm(props) {
             />
             <br />
             <input 
+                className="input"
                 type="text" 
                 name="living" 
                 value={inputs.living} 
                 onChange={handleChange}
                 placeholder="Dead or Alive"
             />
-            <br />
             <input
+                className="input"
                 type="text" 
                 name="type" 
                 value={inputs.type} 
@@ -49,7 +56,7 @@ export default function AddBountyForm(props) {
                 placeholder="Type"
             />   
             <br />
-            <button>Add Bounty</button>
+    <button className="addBountyBtn" type="submit">{props.btnText}</button>
         </form>
     )
 }

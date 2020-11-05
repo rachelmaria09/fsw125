@@ -15,21 +15,45 @@ export default function App() {
     function addBounty(newBounty) {
         axios.post("/bounties", newBounty)
         .then(res => {
-            setBounties(prevBounties => [...prevBounties, res.data])
         })
         .catch(err => console.log(err))
     }
 
+    function deleteBounty(bountyId) {
+        axios.delete(`/bounties/${bountyId}`)
+        .then(res => {
+            setBounties(prevBounties => prevBounties.filter(bounties => Bounty._id !== bountyId))
+        })
+        .catch(err => console.log(err))
+    }
+
+    function editBounty(updates, bountyId) {
+        axios.put(`/bounties/${bountyId}`, updates)
+        .then(res => {
+            setBounties(prevBounties => prevBounties.map(Bounty => Bounty._id !== bountyId ? Bounty : res.data))
+        })
+        .catch(err => console.log(err))
+    }
 
     useEffect(() => {
         getBounties()
     }, [])
     return (
-        <div>
+        <div className="allText">
+            <h2 className="heading">Bounty List</h2>
             <AddBountyForm 
-                addBounty={addBounty}
+                submit={addBounty}
+                btnText="Add Bounty"
             />
-            { bounties.map(bounty => <Bounty {...bounty} key={bounty.firstName} />) }
+            { 
+            bounties.map(bounty => 
+                <Bounty 
+                {...bounty} 
+                key={bounty.firstName}
+                deleteBounty={deleteBounty}
+                editBounty={editBounty}
+                />) 
+            }
         </div>
     )
 }
