@@ -1,7 +1,6 @@
 const express = require('express')
 const bountyRouter = express.Router()
 const uuid = require('uuid')
-// import uuid from 'uuid'
 
 const bounties = [
     { firstName: "Darth", lastName: "Vader", living: true, type: "Sith", _id: uuid.v4() },
